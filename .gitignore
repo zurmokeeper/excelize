@@ -13,7 +13,7 @@ build/*
 
 # Test Output Folder
 out/*
-spec/out/*
+# spec/out/*
 
 # Tmp folder
 tmp/*
