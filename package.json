@@ -93,13 +93,17 @@
     "views",
     "frozen",
     "split",
-    "pageSetup"
+    "pageSetup",
+    "cfb",
+    "ecma376_standard",
+    "ecma376_agile"
   ],
   "dependencies": {
     "archiver": "^5.0.0",
     "dayjs": "^1.8.34",
     "fast-csv": "^4.3.1",
     "jszip": "^3.10.1",
+    "officecrypto-tool": "0.0.3",
     "readable-stream": "^3.6.0",
     "saxes": "^5.0.1",
     "tmp": "^0.2.0",
