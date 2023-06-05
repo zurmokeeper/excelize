@@ -1453,23 +1453,49 @@ export interface XlsxWriteOptions extends stream.xlsx.WorkbookWriterOptions {
 	zip: Partial<JSZipGeneratorOptions>;
 }
 
+export interface XlsxReadOptions {
+	/**
+	 * @desc Decrypted passwords, maximum length is 255
+	 * optional
+	 */
+	password: string;
+
+	/**
+	 * @desc This parameter indicates that the input is a base64-encoded buffer. Only valid for the load method
+	 * optional
+	 */
+	base64: boolean;
+
+	/**
+	 * @desc TODO:
+	 * optional
+	 */
+	maxRows: number;
+
+	/**
+	 * @desc TODO:
+	 * optional
+	 */
+	maxCols: number;
+}
+
 export interface Xlsx {
 	/**
 	 * read from a file
 	 */
-	readFile(path: string): Promise<Workbook>;
+	readFile(path: string, options?: Partial<XlsxReadOptions>): Promise<Workbook>;
 
 	/**
 	 * read from a stream
 	 * @param stream
 	 */
-	read(stream: import('stream').Stream): Promise<Workbook>;
+	read(stream: import('stream').Stream, options?: Partial<XlsxReadOptions>): Promise<Workbook>;
 
 	/**
 	 * load from an array buffer
 	 * @param buffer
 	 */
-	load(buffer: Buffer): Promise<Workbook>;
+	load(buffer: Buffer, options?: Partial<XlsxReadOptions>): Promise<Workbook>;
 
 	/**
 	 * write to a buffer

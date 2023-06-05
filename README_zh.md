@@ -2049,18 +2049,30 @@ worksheet.unprotect();
 // 从文件读取
 const workbook = new Excel.Workbook();
 await workbook.xlsx.readFile(filename);
+
+// 从文件读取, 解密使用密码加密的excel文件
+const workbook = new Excel.Workbook();
+await workbook.xlsx.readFile(filename, {password:'123456'});
 // ... 使用 workbook
 
 
 // 从流读取
 const workbook = new Excel.Workbook();
 await workbook.xlsx.read(stream);
+
+// 从流读取, 解密使用密码加密的excel文件
+const workbook = new Excel.Workbook();
+await workbook.xlsx.read(stream, {password:'123456'});
 // ... 使用 workbook
 
 
 // 从 buffer 加载
 const workbook = new Excel.Workbook();
 await workbook.xlsx.load(data);
+
+// 从 buffer 加载, 解密使用密码加密的excel文件
+const workbook = new Excel.Workbook();
+await workbook.xlsx.load(data, {password:'123456'});
 // ... 使用 workbook
 ```
 

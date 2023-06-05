@@ -2159,18 +2159,30 @@ faster or more resilient.
 // read from a file
 const workbook = new Excel.Workbook();
 await workbook.xlsx.readFile(filename);
+
+// read from a file, decrypt excel files encrypted with password
+const workbook = new Excel.Workbook();
+await workbook.xlsx.readFile(filename, {password:'123456'});
 // ... use workbook
 
 
 // read from a stream
 const workbook = new Excel.Workbook();
 await workbook.xlsx.read(stream);
+
+// read from a stream, decrypt excel files encrypted with password
+const workbook = new Excel.Workbook();
+await workbook.xlsx.read(stream, {password:'123456'});
 // ... use workbook
 
 
 // load from buffer
 const workbook = new Excel.Workbook();
 await workbook.xlsx.load(data);
+
+// load from buffer, decrypt excel files encrypted with password
+const workbook = new Excel.Workbook();
+await workbook.xlsx.load(data, {password:'123456'});
 // ... use workbook
 ```
 
