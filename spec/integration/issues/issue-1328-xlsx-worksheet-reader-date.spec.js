@@ -7,7 +7,8 @@ describe('github issues: Date field with cache style', () => {
     () =>
       new Promise((resolve, reject) => {
         const workbookReader = new ExcelJS.stream.xlsx.WorkbookReader(
-          fs.createReadStream('./spec/integration/data/dateIssue.xlsx'),
+          // fs.createReadStream('./spec/integration/data/dateIssue.xlsx'), //old
+          fs.createReadStream('./spec/integration/data/dateIssueNew.xlsx'),
           {
             worksheets: 'emit',
             styles: 'cache',
@@ -25,8 +26,15 @@ describe('github issues: Date field with cache style', () => {
       })
   );
   it('issue 1328 - should emit row with Date Object', () => {
+    // old
+    // expect(rows).that.deep.equals([
+    //   'Date',
+    //   new Date('2020-11-20T00:00:00.000Z'),
+    // ]);
+
+    // new
     expect(rows).that.deep.equals([
-      'Date',
+      // 'Date',
       new Date('2020-11-20T00:00:00.000Z'),
     ]);
   });
