@@ -1451,6 +1451,12 @@ export interface XlsxWriteOptions extends stream.xlsx.WorkbookWriterOptions {
 	 * The option passed to JsZip#generateAsync(options)
 	 */
 	zip: Partial<JSZipGeneratorOptions>;
+
+	/**
+	 * @desc Password for decryption
+	 * optional
+	 */
+	password: string;
 }
 
 export interface XlsxReadOptions {
