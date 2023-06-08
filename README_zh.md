@@ -11,8 +11,42 @@
 # 安装
 
 ```shell
-npm install exceljs
+npm install @zurmokeeper/exceljs
 ```
+
+# V4.4.1 新的功能!
+
+变更日志:
+<ul>
+  <li>
+    新增嵌套列功能（多表头）. 感谢 <a href="https://github.com/jeka1985">jeka1985</a>, Merged <a href="https://github.com/exceljs/exceljs/pull/1889"> PR1889</a>.
+    
+    Code snippets: 
+
+    // new api: worksheet.makeColumns()
+  </li>
+  <li>
+    新增导出加密Excel文件功能.
+
+    Code snippets: 
+    await workbook.xlsx.writeFile(filename, {password: '123456'});
+  </li>
+</ul>
+
+# V4.4.0 新的功能!
+
+变更日志:
+<ul>
+  <li>
+    新增读取加密Excel的功能 (支持前端和后端（Node.js）)
+
+    Code snippets:
+
+    // read from a stream, decrypt excel files encrypted with password
+    // const workbook = new Excel.Workbook();
+    // await workbook.xlsx.readFile(filename, {password:'123456'});
+  </li>
+</ul>
 
 # 新的功能!
 
@@ -689,6 +723,26 @@ const newCol3Values = [1,2,3,4,5];
 const newCol4Values = ['one', 'two', 'three', 'four', 'five'];
 worksheet.spliceColumns(3, 1, newCol3Values, newCol4Values);
 
+// 嵌套列
+// 使用这个API来构建嵌套列（实现多级表头）
+worksheet.makeColumns([
+  {
+    id: 1, 
+    title: 'Some', 
+  },
+  {id: 2, title: 'Qwe'},
+  {id: 3, title: 'Foo'},
+  {
+    id: 4,
+    title: 'Zoo',
+    children: [
+      { id: 41, title: 'Zoo 1' },
+      { id: 42, title: 'Zoo 2' },
+      { id: 44, title: 'Zoo 3' },
+      { id: 45, title: 'Zoo 4' },
+    ]
+  }
+]);
 ```
 
 ## 行[⬆](#目录)<!-- Link generated with jump2header -->
@@ -2083,11 +2137,21 @@ await workbook.xlsx.load(data, {password:'123456'});
 const workbook = createAndFillWorkbook();
 await workbook.xlsx.writeFile(filename);
 
+// 写入文件, 带密码保护的
+const workbook = createAndFillWorkbook();
+await workbook.xlsx.writeFile(filename, {password: '123456'});
+
 // 写入流
 await workbook.xlsx.write(stream);
 
+// 写入流, 带密码保护的
+await workbook.xlsx.write(stream, {password: '123456'}));
+
 // 写入 buffer
 const buffer = await workbook.xlsx.writeBuffer();
+
+// 写入 buffer, 带密码保护的
+const buffer = await workbook.xlsx.writeBuffer({password: '123456'});
 ```
 
 ### CSV[⬆](#目录)<!-- Link generated with jump2header -->

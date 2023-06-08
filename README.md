@@ -13,8 +13,42 @@ Reverse engineered from Excel spreadsheet files as a project.
 # Installation
 
 ```shell
-npm install exceljs
+npm install @zurmokeeper/exceljs
 ```
+
+# V4.4.1 New Features!
+
+Change Log:
+<ul>
+  <li>
+    Add nested columns feature. Thank you <a href="https://github.com/jeka1985">jeka1985</a>, Merged <a href="https://github.com/exceljs/exceljs/pull/1889"> PR1889</a>.
+    
+    Code snippets: 
+
+    // new api: worksheet.makeColumns()
+  </li>
+  <li>
+    Add file encryption function.
+
+    Code snippets: 
+    await workbook.xlsx.writeFile(filename, {password: '123456'});
+  </li>
+</ul>
+
+# V4.4.0 New Features!
+
+Change Log:
+<ul>
+  <li>
+    Add decryption of excel files with password encryption (Support frontend and backend)
+
+    Code snippets:
+
+    // read from a stream, decrypt excel files encrypted with password
+    // const workbook = new Excel.Workbook();
+    // await workbook.xlsx.readFile(filename, {password:'123456'});
+  </li>
+</ul>
 
 # New Features!
 
@@ -742,6 +776,26 @@ const newCol3Values = [1,2,3,4,5];
 const newCol4Values = ['one', 'two', 'three', 'four', 'five'];
 worksheet.spliceColumns(3, 1, newCol3Values, newCol4Values);
 
+// Nested columns
+// Also you can build nested columns 
+worksheet.makeColumns([
+  {
+    id: 1, 
+    title: 'Some', 
+  },
+  {id: 2, title: 'Qwe'},
+  {id: 3, title: 'Foo'},
+  {
+    id: 4,
+    title: 'Zoo',
+    children: [
+      { id: 41, title: 'Zoo 1' },
+      { id: 42, title: 'Zoo 2' },
+      { id: 44, title: 'Zoo 3' },
+      { id: 45, title: 'Zoo 4' },
+    ]
+  }
+]);
 ```
 
 ## Rows[⬆](#contents)<!-- Link generated with jump2header -->
@@ -2193,11 +2247,21 @@ await workbook.xlsx.load(data, {password:'123456'});
 const workbook = createAndFillWorkbook();
 await workbook.xlsx.writeFile(filename);
 
+// write to a file, with password encryption
+const workbook = createAndFillWorkbook();
+await workbook.xlsx.writeFile(filename, {password: '123456'});
+
 // write to a stream
 await workbook.xlsx.write(stream);
 
+// write to a stream, with password encryption
+await workbook.xlsx.write(stream, {password: '123456'}));
+
 // write to a new buffer
 const buffer = await workbook.xlsx.writeBuffer();
+
+// write to a new buffer, with password encryption
+const buffer = await workbook.xlsx.writeBuffer({password: '123456'});
 ```
 
 ### CSV[⬆](#contents)<!-- Link generated with jump2header -->

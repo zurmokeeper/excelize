@@ -1163,14 +1163,42 @@ export interface Worksheet {
 	 * Cut one or more columns (columns to the right are shifted left)
 	 * and optionally insert more
 	 *
-	 * If column properties have been definde, they will be cut or moved accordingly
+	 * If column properties have been define, they will be cut or moved accordingly
 	 *
 	 * Known Issue: If a splice causes any merged cells to move, the results may be unpredictable
 	 *
-	 * Also: If the worksheet has more rows than values in the colulmn inserts,
+	 * Also: If the worksheet has more rows than values in the column inserts,
 	 * the rows will still be shifted as if the values existed
 	 */
 	spliceColumns(start: number, count: number, ...insert: any[][]): void;
+
+	/**
+	 * Generate nested columns
+	 * Example:
+	 * 
+	 *  const headers = [
+	 *  {id: 1,title: 'name'},
+        {id: 2, title: 'Qwe'},
+        {id: 3, title: 'Foo'},
+        {
+          id: 4,
+          title: 'ABC',
+          children: [
+            {id: 41, title: 'Zoo 1'},
+            {id: 42, title: 'Zoo 2'},
+            {id: 44, title: 'Zoo 3'},
+          ],
+        }]
+	 *
+	 *	const workbook = new ExcelJS.Workbook();
+	 *	const worksheet = workbook.addWorksheet('Sheet1');
+	 *	worksheet.makeColumns(headers);
+	 *
+	 * 
+	 * Note: This API allows you to quickly build an excel with multiple table headers.
+	 * TODO: Can you set the background color together?
+	 */
+	makeColumns(input: any[][]): any[][];
 
 	/**
 	 * Add column headers and define column keys and widths.
