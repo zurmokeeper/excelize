@@ -25,12 +25,13 @@ Change Log:
     
     Code snippets: 
 
-    // new api: worksheet.makeColumns()
+    // new api: worksheet.makeColumns(headers)
   </li>
   <li>
     Add file encryption function.
 
     Code snippets: 
+
     await workbook.xlsx.writeFile(filename, {password: '123456'});
   </li>
 </ul>

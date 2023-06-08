@@ -23,12 +23,13 @@ npm install @zurmokeeper/exceljs
     
     Code snippets: 
 
-    // new api: worksheet.makeColumns()
+    // new api: worksheet.makeColumns(headers)
   </li>
   <li>
     新增导出加密Excel文件功能.
 
     Code snippets: 
+
     await workbook.xlsx.writeFile(filename, {password: '123456'});
   </li>
 </ul>
