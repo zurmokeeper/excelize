@@ -1,9 +1,12 @@
 {
   "name": "@zurmokeeper/exceljs",
-  "version": "4.4.1",
+  "version": "4.4.2",
   "description": "Excel Workbook Manager - Read and Write xlsx and csv Files.",
   "private": false,
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "author": {
     "name": "zurmokeeper",
     "email": "3382272560@qq.com"
@@ -37,7 +40,6 @@
     "test:native": "npm run test:full",
     "test:unit": "mocha --require spec/config/setup --require spec/config/setup-unit spec/unit --recursive",
     "test:integration": "mocha --require spec/config/setup spec/integration --recursive",
-    "test:hyperlink": "mocha --require spec/config/setup spec/unit/xlsx/xform/sheet/hyperlink-xform.spec.js",
     "test:end-to-end": "mocha --require spec/config/setup spec/end-to-end --recursive",
     "test:browser": "if [ ! -f .disable-test-browser ]; then npm run build && npm run test:jasmine; fi",
     "test:jasmine": "grunt jasmine",

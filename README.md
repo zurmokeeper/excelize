@@ -16,6 +16,33 @@ Reverse engineered from Excel spreadsheet files as a project.
 npm install @zurmokeeper/exceljs
 ```
 
+# V4.4.2 New Features!
+
+Change Log:
+
+*  1: Fixbug: [Internal hyperlink does not work on wps office](https://github.com/zurmokeeper/excelize/issues/4). (brank change) and support new internal linking methods。
+* 2：Add type definition for WorksheetModel.merges,  Thank you <a href="https://github.com/ytjmt">ytjmt</a>, Merged <a href="https://github.com/exceljs/exceljs/pull/2281"> PR2281</a>.
+* 3：Add type definition for WorksheetProtection.spinCount,Thank you <a href="https://github.com/damingerdai">damingerdai</a>, Merged <a href="https://github.com/exceljs/exceljs/pull/2284"> PR2284</a>.
+
+PS: Since V4.4.2 @zurmokeeper/exceljs new cell insertion internal links support `Sheet2!A1:B1` and `A1:B1` and other forms, the original only supports `Sheet2!A1`, use the following way:：
+
+
+```
+const wb = new ExcelJS.Workbook();
+const ws1 = wb.addWorksheet('Sheet1');
+const ws2 = wb.addWorksheet('Sheet2');
+
+'#' is required, @zurmokeeper/exceljs is to distinguish internal links by '#', the default will be considered non-internal links, older versions also need to manually add '#' , how not to add if
+// internal link
+ws1.getCell('A1').value = { text: 'Sheet2', hyperlink: '#Sheet2!A1' };
+
+// internal link
+ws1.getCell('A1').value = { text: 'Sheet2', hyperlink: '#Sheet2!A1:B1' };
+
+// internal link
+ws1.getCell('A1').value = { text: 'Sheet2', hyperlink: '#A1:B1' };
+```
+
 # V4.4.1 New Features!
 
 Change Log:
