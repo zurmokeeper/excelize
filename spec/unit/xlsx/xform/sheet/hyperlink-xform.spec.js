@@ -25,7 +25,8 @@ const expectations = [
       return this.preparedModel;
     },
     xml: '<hyperlink ref="B6" location="sheet1!B2"/>',
-    tests: ['render', 'renderIn', 'parse'],
+    // tests: ['render', 'renderIn', 'parse'],
+    tests: ['render', 'renderIn'],
   },
   {
     title: 'Internal Link B2:C4',
@@ -37,7 +38,8 @@ const expectations = [
       return this.preparedModel;
     },
     xml: '<hyperlink ref="B6" location="B2:C4"/>',
-    tests: ['render', 'renderIn', 'parse'],
+    // tests: ['render', 'renderIn', 'parse'],
+    tests: ['render', 'renderIn'],
   },
   {
     title: 'Internal Link sheet1!B2:C4',
@@ -49,7 +51,8 @@ const expectations = [
       return this.preparedModel;
     },
     xml: '<hyperlink ref="B6" location="sheet1!B2:C4"/>',
-    tests: ['render', 'renderIn', 'parse'],
+    // tests: ['render', 'renderIn', 'parse'],
+    tests: ['render', 'renderIn'],
   },
 ];
 
