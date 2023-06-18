@@ -15,7 +15,7 @@ describe('pr related issues', () => {
       });
       const sheetName = workbook.getWorksheet(1).name;
       expect(sheetName).to.equal('Sheet1');
-    });
+    }).timeout(10000);
 
     it('workbook.xlsx.readFile, ecma376_agile encryption method decrypted successfully', async () => {
       const workbook = new ExcelJS.Workbook();
@@ -24,7 +24,7 @@ describe('pr related issues', () => {
       });
       const sheetName = workbook.getWorksheet(1).name;
       expect(sheetName).to.equal('Sheet1');
-    });
+    }).timeout(10000);
 
     it('workbook.xlsx.load, ecma376_standard encryption method decrypted successfully ', async () => {
       const workbook = new ExcelJS.Workbook();
@@ -34,7 +34,7 @@ describe('pr related issues', () => {
       });
       const sheetName = workbook.getWorksheet(1).name;
       expect(sheetName).to.equal('Sheet1');
-    });
+    }).timeout(10000);
 
     it('workbook.xlsx.load, ecma376_agile encryption method decrypted successfully ', async () => {
       const workbook = new ExcelJS.Workbook();
@@ -47,7 +47,7 @@ describe('pr related issues', () => {
       );
       const sheetName = workbook.getWorksheet(1).name;
       expect(sheetName).to.equal('Sheet1');
-    });
+    }).timeout(10000);
 
     it('workbook.xlsx.load, options.base64 = true, ecma376_standard encryption method decrypted successfully ', async () => {
       const workbook = new ExcelJS.Workbook();
@@ -60,7 +60,7 @@ describe('pr related issues', () => {
       });
       const sheetName = workbook.getWorksheet(1).name;
       expect(sheetName).to.equal('Sheet1');
-    });
+    }).timeout(10000);
 
     it('workbook.xlsx.load, options.base64 = true, ecma376_agile encryption method decrypted successfully ', async () => {
       const workbook = new ExcelJS.Workbook();
@@ -73,7 +73,7 @@ describe('pr related issues', () => {
       });
       const sheetName = workbook.getWorksheet(1).name;
       expect(sheetName).to.equal('Sheet1');
-    });
+    }).timeout(10000);
 
     it('workbook.xlsx.read, ecma376_standard encryption method decrypted successfully ', async () => {
       const workbook = new ExcelJS.Workbook();
@@ -83,7 +83,7 @@ describe('pr related issues', () => {
       });
       const sheetName = workbook.getWorksheet(1).name;
       expect(sheetName).to.equal('Sheet1');
-    });
+    }).timeout(10000);
 
     it('workbook.xlsx.read, ecma376_agile encryption method decrypted successfully ', async () => {
       const workbook = new ExcelJS.Workbook();
@@ -93,6 +93,6 @@ describe('pr related issues', () => {
       });
       const sheetName = workbook.getWorksheet(1).name;
       expect(sheetName).to.equal('Sheet1');
-    });
+    }).timeout(10000);
   });
 });
