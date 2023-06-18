@@ -1,4 +1,4 @@
-# ExcelJS
+# @zurmokeeper/exceljs
 
 [![Build status](https://github.com/exceljs/exceljs/workflows/ExcelJS/badge.svg)](https://github.com/exceljs/exceljs/actions?query=workflow%3AExcelJS)
 
@@ -227,7 +227,7 @@ To be clear, all contributions added to this library will be included in the lib
 # Importing[⬆](#contents)<!-- Link generated with jump2header -->
 
 ```javascript
-const ExcelJS = require('exceljs');
+const ExcelJS = require('@zurmokeeper/exceljs');
 ```
 
 ## ES5 Imports[⬆](#contents)<!-- Link generated with jump2header -->

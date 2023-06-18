@@ -99,7 +99,7 @@ const its = {
 
         const xmlStream = new XmlStream();
         xform.render(xmlStream, model);
-        // console.log(xmlStream.xml);
+        // console.log(xmlStream.xml, result);
 
         expect(xmlStream.xml).xml.to.equal(result);
         resolve();
