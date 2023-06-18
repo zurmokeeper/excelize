@@ -880,6 +880,7 @@ export interface WorksheetProtection {
 	sort: boolean;
 	autoFilter: boolean;
 	pivotTables: boolean;
+	spinCount: number;
 }
 export interface Image {
 	extension: 'jpeg' | 'png' | 'gif';
@@ -989,6 +990,7 @@ export interface WorksheetModel {
 	views: WorksheetView[];
 	autoFilter: AutoFilter;
 	media: Media[];
+	merges: Range['range'][];
 }
 export type WorksheetState = 'visible' | 'hidden' | 'veryHidden';
 

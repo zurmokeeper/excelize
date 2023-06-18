@@ -1,4 +1,4 @@
-# ExcelJS
+# @zurmokeeper/exceljs
 
 [![Build status](https://github.com/exceljs/exceljs/workflows/ExcelJS/badge.svg)](https://github.com/exceljs/exceljs/actions?query=workflow%3AExcelJS)
 
@@ -14,6 +14,33 @@ Reverse engineered from Excel spreadsheet files as a project.
 
 ```shell
 npm install @zurmokeeper/exceljs
+```
+
+# V4.4.2 New Features!
+
+Change Log:
+
+*  1: Fixbug: [Internal hyperlink does not work on wps office](https://github.com/zurmokeeper/excelize/issues/4). (Break change) and support new internal hyperlink methods。
+* 2：Add type definition for WorksheetModel.merges,  Thank you <a href="https://github.com/ytjmt">ytjmt</a>, Merged <a href="https://github.com/exceljs/exceljs/pull/2281"> PR2281</a>.
+* 3：Add type definition for WorksheetProtection.spinCount,Thank you <a href="https://github.com/damingerdai">damingerdai</a>, Merged <a href="https://github.com/exceljs/exceljs/pull/2284"> PR2284</a>.
+
+PS: Since V4.4.2 @zurmokeeper/exceljs new cell insertion internal hyperlink support `Sheet2!A1:B1` and `A1:B1` and other forms, the original only supports `Sheet2!A1`, use the following way:：
+
+
+```
+const wb = new ExcelJS.Workbook();
+const ws1 = wb.addWorksheet('Sheet1');
+const ws2 = wb.addWorksheet('Sheet2');
+
+'#' is required, @zurmokeeper/exceljs is to distinguish internal hyperlink by '#', the default will be considered non-internal hyperlink, older versions also need to manually add '#' , how not to add if
+// internal hyperlink
+ws1.getCell('A1').value = { text: 'Sheet2', hyperlink: '#Sheet2!A1' };
+
+// internal hyperlink
+ws1.getCell('A1').value = { text: 'Sheet2', hyperlink: '#Sheet2!A1:B1' };
+
+// internal hyperlink
+ws1.getCell('A1').value = { text: 'Sheet2', hyperlink: '#A1:B1' };
 ```
 
 # V4.4.1 New Features!
@@ -227,7 +254,7 @@ To be clear, all contributions added to this library will be included in the lib
 # Importing[⬆](#contents)<!-- Link generated with jump2header -->
 
 ```javascript
-const ExcelJS = require('exceljs');
+const ExcelJS = require('@zurmokeeper/exceljs');
 ```
 
 ## ES5 Imports[⬆](#contents)<!-- Link generated with jump2header -->

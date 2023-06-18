@@ -1,9 +1,12 @@
 {
   "name": "@zurmokeeper/exceljs",
-  "version": "4.4.1",
+  "version": "4.4.2",
   "description": "Excel Workbook Manager - Read and Write xlsx and csv Files.",
   "private": false,
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "author": {
     "name": "zurmokeeper",
     "email": "3382272560@qq.com"
