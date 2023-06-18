@@ -18,7 +18,7 @@ npm install @zurmokeeper/exceljs
 
 变更日志:
 
-*  1: Fixbug: [Internal hyperlink does not work on wps office](https://github.com/zurmokeeper/excelize/issues/4). (brank change) 和支持新的内部链接方式。
+*  1: Fixbug: [Internal hyperlink does not work on wps office](https://github.com/zurmokeeper/excelize/issues/4). (Break change) 和支持新的内部链接方式。
 * 2：Add type definition for WorksheetModel.merges,  Thank you <a href="https://github.com/ytjmt">ytjmt</a>, Merged <a href="https://github.com/exceljs/exceljs/pull/2281"> PR2281</a>.
 * 3：Add type definition for WorksheetProtection.spinCount,Thank you <a href="https://github.com/damingerdai">damingerdai</a>, Merged <a href="https://github.com/exceljs/exceljs/pull/2284"> PR2284</a>.
 
@@ -31,13 +31,13 @@ const ws1 = wb.addWorksheet('Sheet1');
 const ws2 = wb.addWorksheet('Sheet2');
 
 '#'是必须的，@zurmokeeper/exceljs 是通过'#'来区分内部链接的，默认会被认为是非内部链接，旧版本使用也要手动加上 '#' ,如何没加的话
-// internal link
+// internal hyperlink
 ws1.getCell('A1').value = { text: 'Sheet2', hyperlink: '#Sheet2!A1' };
 
-// internal link
+// internal hyperlink
 ws1.getCell('A1').value = { text: 'Sheet2', hyperlink: '#Sheet2!A1:B1' };
 
-// internal link
+// internal hyperlink
 ws1.getCell('A1').value = { text: 'Sheet2', hyperlink: '#A1:B1' };
 ```
 
