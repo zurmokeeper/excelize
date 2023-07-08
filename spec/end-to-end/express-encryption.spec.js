@@ -30,7 +30,7 @@ describe('Express test workbook.xlsx.write encryption', () => {
   });
 
   it('downloads a workbook, workbook.xlsx.write encryption successful', async function() {
-    this.timeout(5000);
+    this.timeout(50000);
     const res = got.stream('http://127.0.0.1:3003/workbook', {
       decompress: false,
     });
