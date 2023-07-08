@@ -14,6 +14,13 @@
 npm install @zurmokeeper/exceljs
 ```
 
+# V4.4.3 新的功能!
+
+变更日志:
+
+*  1: BugFix: [当设置数据有效性校验(dataValidation)时，如果字符串长度大于255，则throw error](https://github.com/zurmokeeper/excelize/issues/10). 
+* 2: BugFix: 修正给一个单元格设置了style，却影响了其他未设置的单元格,  Thank you <a href="https://github.com/styunan">styunan</a>, Merged <a href="https://github.com/exceljs/exceljs/pull/1573"> PR1573</a>.
+
 # V4.4.2 新的功能!
 
 变更日志:
