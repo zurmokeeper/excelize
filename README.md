@@ -16,6 +16,13 @@ Reverse engineered from Excel spreadsheet files as a project.
 npm install @zurmokeeper/exceljs
 ```
 
+# V4.4.3 New Features!
+
+Change Log:
+
+*  1: BugFix: [Dropdown Excel js there is limitation of accepting 255 characters and beyond that throws error](https://github.com/zurmokeeper/excelize/issues/10). 
+* 2: BugFix: cell.style.fill problems,  Thank you <a href="https://github.com/styunan">styunan</a>, Merged <a href="https://github.com/exceljs/exceljs/pull/1573"> PR1573</a>.
+
 # V4.4.2 New Features!
 
 Change Log:
