@@ -972,7 +972,7 @@ export interface Range extends Location {
 	}>): boolean;
 }
 
-export interface RowBreak {
+export interface PageBreak {
 	id: number;
 	max: number;
 	min: number;
@@ -986,7 +986,8 @@ export interface WorksheetModel {
 	properties: WorksheetProperties;
 	pageSetup: Partial<PageSetup>;
 	headerFooter: Partial<HeaderFooter>;
-	rowBreaks: RowBreak[];
+	rowBreaks: PageBreak[];
+	colBreaks: PageBreak[];
 	views: WorksheetView[];
 	autoFilter: AutoFilter;
 	media: Media[];
