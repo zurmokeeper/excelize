@@ -673,6 +673,11 @@ export interface Column {
 	 */
 	eachCell(opt: { includeEmpty: boolean }, callback: (cell: Cell, rowNumber: number) => void): void;
 
+	/**
+	 * Inserts a page break after the column
+	 */
+	addPageBreak(tp?: number, btm?: number): void;
+
 	defn: any; //todo
 }
 export interface PageSetup {
