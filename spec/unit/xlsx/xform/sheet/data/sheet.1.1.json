@@ -79,6 +79,7 @@
   "comments": [],
   "media": [],
   "rowBreaks": [],
+  "colBreaks": [],
   "tables": [],
   "headerFooter": {
     "oddHeader": "&C&KCCCCCC&\"Aril\"2 exceljs",
