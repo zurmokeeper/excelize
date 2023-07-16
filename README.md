@@ -16,6 +16,10 @@ Reverse engineered from Excel spreadsheet files as a project.
 npm install @zurmokeeper/exceljs
 ```
 
+# New Features!
+
+Since V4.4.3, the detailed update of the new version can be accessed from [here](https://github.com/zurmokeeper/excelize/releases).
+
 # V4.4.3 New Features!
 
 Change Log:
@@ -781,6 +785,9 @@ worksheet.getColumn(5).outlineLevel = 1;
 // columns support a readonly field to indicate the collapsed state based on outlineLevel
 expect(worksheet.getColumn(4).collapsed).to.equal(false);
 expect(worksheet.getColumn(5).collapsed).to.equal(true);
+
+// Insert a page break below the column
+dobCol.addPageBreak();
 
 // iterate over all current cells in this column
 dobCol.eachCell(function(cell, rowNumber) {

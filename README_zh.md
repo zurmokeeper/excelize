@@ -14,6 +14,10 @@
 npm install @zurmokeeper/exceljs
 ```
 
+# 新的功能!
+
+自V4.4.3以后，新版本详细更新内容在[这里](https://github.com/zurmokeeper/excelize/releases).
+
 # V4.4.3 新的功能!
 
 变更日志:
@@ -729,6 +733,9 @@ worksheet.getColumn(5).outlineLevel = 1;
 // 列支持一个只读字段，以指示基于 `OutlineLevel` 的折叠状态
 expect(worksheet.getColumn(4).collapsed).to.equal(false);
 expect(worksheet.getColumn(5).collapsed).to.equal(true);
+
+// 在该列右边插入一个分页符
+dobCol.addPageBreak();
 
 // 遍历此列中的所有当前单元格
 dobCol.eachCell(function(cell, rowNumber) {
