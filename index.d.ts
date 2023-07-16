@@ -673,6 +673,11 @@ export interface Column {
 	 */
 	eachCell(opt: { includeEmpty: boolean }, callback: (cell: Cell, rowNumber: number) => void): void;
 
+	/**
+	 * Inserts a page break after the column
+	 */
+	addPageBreak(tp?: number, btm?: number): void;
+
 	defn: any; //todo
 }
 export interface PageSetup {
@@ -972,7 +977,7 @@ export interface Range extends Location {
 	}>): boolean;
 }
 
-export interface RowBreak {
+export interface PageBreak {
 	id: number;
 	max: number;
 	min: number;
@@ -986,7 +991,8 @@ export interface WorksheetModel {
 	properties: WorksheetProperties;
 	pageSetup: Partial<PageSetup>;
 	headerFooter: Partial<HeaderFooter>;
-	rowBreaks: RowBreak[];
+	rowBreaks: PageBreak[];
+	colBreaks: PageBreak[];
 	views: WorksheetView[];
 	autoFilter: AutoFilter;
 	media: Media[];

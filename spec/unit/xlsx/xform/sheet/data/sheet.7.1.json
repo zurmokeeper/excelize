@@ -46,6 +46,9 @@
     {"id": 2, "max": 2, "min": 0, "man": 1},
     {"id": 5, "max": 2, "min": 0, "man": 1}
   ],
+  "colBreaks": [
+    { "id": 3, "min": 0, "max": 1000, "man": 1 }
+  ],
   "comments": [],
   "media": [],
   "tables": [],

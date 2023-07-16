@@ -130,7 +130,7 @@ const expectations = [
     },
   },
   {
-    title: 'Sheet 7 - Row Breaks',
+    title: 'Sheet 7 - Page Breaks',
     create: () => new WorksheetXform(),
     initialModel: require('./data/sheet.7.0.json'),
     preparedModel: require('./data/sheet.7.1.json'),
