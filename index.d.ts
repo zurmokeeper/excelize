@@ -504,6 +504,11 @@ export interface Cell extends Style, Address {
 	unmerge(): void;
 	isMergedTo(master: Cell): boolean;
 	toString(): string;
+
+	/**
+	 * Remove comment of the cell
+	 */
+	removeNote(): void;
 }
 
 export interface RowModel {
