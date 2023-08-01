@@ -786,7 +786,7 @@ worksheet.getColumn(5).outlineLevel = 1;
 expect(worksheet.getColumn(4).collapsed).to.equal(false);
 expect(worksheet.getColumn(5).collapsed).to.equal(true);
 
-// Insert a page break below the column
+// Insert a page break after the column
 dobCol.addPageBreak();
 
 // iterate over all current cells in this column
@@ -1258,6 +1258,9 @@ ws.getCell('B1').note = {
   },
   editAs: 'twoCells',
 };
+
+// remove note
+ws.getCell('B1').removeNote()
 ```
 
 ### Cell Comments Properties[⬆](#contents)<!-- Link generated with jump2header -->

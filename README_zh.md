@@ -1204,6 +1204,9 @@ ws.getCell('B1').note = {
   },
   editAs: 'twoCells'
 };
+
+// 移除单元格注释
+ws.getCell('B1').removeNote()
 ```
 
 ### 单元格批注属性[⬆](#目录)<!-- Link generated with jump2header -->
