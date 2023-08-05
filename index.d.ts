@@ -254,6 +254,7 @@ export interface Color {
 	 * Selection by indexed
 	 * 
 	 * Color Index ARGB Value Example:
+	 * 
 		indexed="0" 00000000
 		indexed="1" 00FFFFFF
 		indexed="2" 00FF0000
