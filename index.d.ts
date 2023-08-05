@@ -233,6 +233,12 @@ export type BorderStyle =
 	| 'thin' | 'dotted' | 'hair' | 'medium' | 'double' | 'thick' | 'dashDot'
 	| 'dashDotDot' | 'slantDashDot' | 'mediumDashed' | 'mediumDashDotDot' | 'mediumDashDot';
 
+export type ColorIndexes = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 |
+	16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 30 | 31 |
+	32 | 33 | 34 | 35 | 36 | 37 | 38 | 39 | 40 | 41 | 42 | 43 | 44 | 45 | 46 | 47 |
+	48 | 49 | 50 | 51 | 52 | 53 | 54 | 55 | 56 | 57 | 58 | 59 | 60 | 61 | 62 | 63 |
+	64 | 65;
+
 export interface Color {
 	/**
 	 * Hex string for alpha-red-green-blue e.g. FF00FF00
@@ -243,6 +249,81 @@ export interface Color {
 	 * Choose a theme by index
 	 */
 	theme: number;
+
+	/**
+	 * Selection by indexed
+	 * 
+	 * Color Index ARGB Value Example:
+		indexed="0" 00000000
+		indexed="1" 00FFFFFF
+		indexed="2" 00FF0000
+		indexed="3" 0000FF00
+		indexed="4" 000000FF
+		indexed="5" 00FFFF00
+		indexed="6" 00FF00FF
+		indexed="7" 0000FFFF
+		indexed="8" 00000000
+		indexed="9" 00FFFFFF
+		indexed="10" 00FF0000
+		indexed="11" 0000FF00
+		indexed="12" 000000FF
+		indexed="13" 00FFFF00
+		indexed="14" 00FF00FF
+		indexed="15" 0000FFFF
+		indexed="16" 00800000
+		indexed="17" 00008000
+		indexed="18" 00000080
+		indexed="19" 00808000
+		indexed="20" 00800080
+		indexed="21" 00008080
+		indexed="22" 00C0C0C0
+		indexed="23" 00808080
+		indexed="24" 009999FF
+		indexed="25" 00993366
+		indexed="26" 00FFFFCC
+		indexed="27" 00CCFFFF
+		indexed="28" 00660066
+		indexed="29" 00FF8080
+		indexed="30" 000066CC
+		indexed="31" 00CCCCFF
+		indexed="32" 00000080
+		indexed="33" 00FF00FF
+		indexed="34" 00FFFF00
+		indexed="35" 0000FFFF
+		indexed="36" 00800080
+		indexed="37" 00800000
+		indexed="38" 00008080
+		indexed="39" 000000FF
+		indexed="40" 0000CCFF
+		indexed="41" 00CCFFFF
+		indexed="42" 00CCFFCC
+		indexed="43" 00FFFF99
+		indexed="44" 0099CCFF
+		indexed="45" 00FF99CC
+		indexed="46" 00CC99FF
+		indexed="47" 00FFCC99
+		indexed="48" 003366FF
+		indexed="49" 0033CCCC
+		indexed="50" 0099CC00
+		indexed="51" 00FFCC00
+		indexed="52" 00FF9900
+		indexed="53" 00FF6600
+		indexed="54" 00666699
+		indexed="55" 00969696
+		indexed="56" 00003366
+		indexed="57" 00339966
+		indexed="58" 00003300
+		indexed="59" 00333300
+		indexed="60" 00993300
+		indexed="61" 00993366
+		indexed="62" 00333399
+		indexed="63" 00333333
+		indexed="64" System Foreground
+		indexed="65" System Background
+	 */
+	indexed: number;
+
+	tint: number;
 }
 
 export interface Border {
