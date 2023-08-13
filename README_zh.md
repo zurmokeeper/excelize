@@ -8,6 +8,13 @@
 
 一个 Excel 电子表格文件逆向工程项目。
 
+# 特别鸣谢
+
+此项目代码基于 exceljs 2023-5-5 的最后一次提交，
+[commitid](https://github.com/exceljs/exceljs/commit/ ec92cb3b898bdf7f806ff9d7b8370c955ee8ba20), exceljs的最新版本是V4.3.0，感谢exceljs项目所有的开发者
+
+@zurmokeeper/exceljs 兼容 exceljs V4.3.0和之前的版本，可以放心切换使用。
+
 # 安装
 
 ```shell
@@ -2144,6 +2151,16 @@ worksheet.unprotect();
 
 #### 读 XLSX[⬆](#目录)<!-- Link generated with jump2header -->
 
+读取xlsx文件的可选参数Option如下
+
+| Field            |  Required   |    Type     |Description  |
+| ---------------- | ----------- | ----------- | ----------- |
+| ignoreNodes      |     N       |  array      | 读取xlsx文件时要忽略的xml节点数组，用于提高性能. <br/> 节点名有这些: `sheetPr`, `dimension`, `sheetViews `, `sheetFormatPr`, `cols `, `sheetData`, `autoFilter `, `mergeCells `, `rowBreaks`, `hyperlinks `, `pageMargins`, `dataValidations`, `pageSetup`, `headerFooter `, `printOptions `, `picture`, `drawing`, `sheetProtection`, `tableParts `, `conditionalFormatting`, `extLst`,|
+| password      |     N       |  string      | 解密用的密码，最大长度是255个字符. |
+| base64      |     N       |  boolean      | 传入的是否是base64编码的内容，只在load方法时有这个参数. |
+| maxRows      |     N       |  number      | TODO:. |
+| maxCols      |     N       |  number      | TODO:. |
+
 ```javascript
 // 从文件读取
 const workbook = new Excel.Workbook();
@@ -2152,6 +2169,9 @@ await workbook.xlsx.readFile(filename);
 // 从文件读取, 解密使用密码加密的excel文件
 const workbook = new Excel.Workbook();
 await workbook.xlsx.readFile(filename, {password:'123456'});
+await workbook.xlsx.readFile(filename, {
+  ignoreNodes:['dataValidations']  // 忽略工作簿的数据有限性验证节点
+});
 // ... 使用 workbook
 
 
@@ -2162,6 +2182,9 @@ await workbook.xlsx.read(stream);
 // 从流读取, 解密使用密码加密的excel文件
 const workbook = new Excel.Workbook();
 await workbook.xlsx.read(stream, {password:'123456'});
+await workbook.xlsx.read(stream, {
+  ignoreNodes:['dataValidations']  // 忽略工作簿的数据有限性验证节点
+});
 // ... 使用 workbook
 
 
@@ -2172,6 +2195,9 @@ await workbook.xlsx.load(data);
 // 从 buffer 加载, 解密使用密码加密的excel文件
 const workbook = new Excel.Workbook();
 await workbook.xlsx.load(data, {password:'123456'});
+await workbook.xlsx.load(data, {
+  ignoreNodes:['dataValidations']  // 忽略工作簿的数据有限性验证节点
+});
 // ... 使用 workbook
 ```
 

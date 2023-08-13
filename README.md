@@ -6,6 +6,12 @@ Read, manipulate and write spreadsheet data and styles to XLSX and JSON.
 
 Reverse engineered from Excel spreadsheet files as a project.
 
+# Special thanks
+
+The project code is forked from exceljs, based on the last commit on 2023-5-5, [commitid](https://github.com/exceljs/exceljs/commit/ ec92cb3b898bdf7f806ff9d7b8370c955ee8ba20), Since the latest version of exceljs is v4.3.0, sincere thanks to all the developers of the exceljs project. 
+
+@zurmokeeper/exceljs is compatible with exceljs V4.3.0 and previous versions, so feel free to switch to it.
+
 # Translations
 
 * [中文文档](README_zh.md)
@@ -2254,6 +2260,16 @@ faster or more resilient.
 
 #### Reading XLSX[⬆](#contents)<!-- Link generated with jump2header -->
 
+Options supported when reading xlsx files.
+
+| Field            |  Required   |    Type     |Description  |
+| ---------------- | ----------- | ----------- | ----------- |
+| ignoreNodes      |     N       |  array      | A list of node names to ignore while loading the XLSX document. Improves performance in some situations. <br/> Available: `sheetPr`, `dimension`, `sheetViews `, `sheetFormatPr`, `cols `, `sheetData`, `autoFilter `, `mergeCells `, `rowBreaks`, `hyperlinks `, `pageMargins`, `dataValidations`, `pageSetup`, `headerFooter `, `printOptions `, `picture`, `drawing`, `sheetProtection`, `tableParts `, `conditionalFormatting`, `extLst`,|
+| password      |     N       |  string      | Decrypted passwords, maximum length is 255. |
+| base64      |     N       |  boolean      | This parameter indicates that the input is a base64-encoded buffer. Only valid for the load method. |
+| maxRows      |     N       |  number      | TODO:. |
+| maxCols      |     N       |  number      | TODO:. |
+
 ```javascript
 // read from a file
 const workbook = new Excel.Workbook();
@@ -2262,6 +2278,9 @@ await workbook.xlsx.readFile(filename);
 // read from a file, decrypt excel files encrypted with password
 const workbook = new Excel.Workbook();
 await workbook.xlsx.readFile(filename, {password:'123456'});
+await workbook.xlsx.readFile(filename, {
+  ignoreNodes:['dataValidations']  // ignores the workbook's Data Validations
+});
 // ... use workbook
 
 
@@ -2272,6 +2291,9 @@ await workbook.xlsx.read(stream);
 // read from a stream, decrypt excel files encrypted with password
 const workbook = new Excel.Workbook();
 await workbook.xlsx.read(stream, {password:'123456'});
+await workbook.xlsx.read(stream, {
+  ignoreNodes:['dataValidations']  // ignores the workbook's Data Validations
+});
 // ... use workbook
 
 
@@ -2282,6 +2304,9 @@ await workbook.xlsx.load(data);
 // load from buffer, decrypt excel files encrypted with password
 const workbook = new Excel.Workbook();
 await workbook.xlsx.load(data, {password:'123456'});
+await workbook.xlsx.load(data, {
+  ignoreNodes:['dataValidations']  // ignores the workbook's Data Validations
+});
 // ... use workbook
 ```
 

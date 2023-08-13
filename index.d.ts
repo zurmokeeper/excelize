@@ -1614,6 +1614,23 @@ export interface XlsxReadOptions {
 	 * optional
 	 */
 	maxCols: number;
+
+	/**
+	 * @desc The list of XML node names to ignore while parsing an XLSX file
+	 * optional
+	 * 
+	 * Example:
+	 * 
+	 * ignoreNodes: [
+     *	'dataValidations' // ignores the workbook's Data Validations
+  	 * ],
+	 * 
+	 * Available: `sheetPr`, `dimension`, `sheetViews `, `sheetFormatPr`, `cols `, 
+	 * `sheetData`, `autoFilter `, `mergeCells `, `rowBreaks`, `hyperlinks `, `pageMargins`, 
+	 * `dataValidations`, `pageSetup`, `headerFooter `, `printOptions `, `picture`, 
+	 * `drawing`, `sheetProtection`, `tableParts `, `conditionalFormatting`, `extLst`
+	 */
+	ignoreNodes: string[];
 }
 
 export interface Xlsx {
