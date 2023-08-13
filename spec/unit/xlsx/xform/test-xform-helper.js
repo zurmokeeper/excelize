@@ -43,8 +43,8 @@ const its = {
         const xform = expectation.create();
         const xmlStream = new XmlStream();
         xform.render(xmlStream, model, 0);
-        // console.log(xmlStream.xml);
-        // console.log(result);
+        // console.log('render-->', xmlStream.xml);
+        // console.log('test render-->', result);
 
         expect(xmlStream.xml).xml.to.equal(result);
         resolve();
@@ -99,7 +99,7 @@ const its = {
 
         const xmlStream = new XmlStream();
         xform.render(xmlStream, model);
-        // console.log(xmlStream.xml, result);
+        // console.log('renderIn-->', xmlStream.xml, result);
 
         expect(xmlStream.xml).xml.to.equal(result);
         resolve();
@@ -169,8 +169,8 @@ const its = {
             // eliminate the undefined
             const clone = cloneDeep(model, false);
 
-            // console.log('result', JSON.stringify(clone));
-            // console.log('expect', JSON.stringify(result));
+            // console.log('parse-->result', JSON.stringify(clone));
+            // console.log('parse-->expect', JSON.stringify(result));
             expect(clone).to.deep.equal(result);
             resolve();
           })
