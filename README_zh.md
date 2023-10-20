@@ -2236,7 +2236,7 @@ const buffer = await workbook.xlsx.writeBuffer({password: '123456'});
 | dateFormats      |     N       |  Array      | 指定 dayjs 的日期编码格式。 |
 | map              |     N       |  Function   | 自定义`Array.prototype.map()` 回调函数，用于处理数据。 |
 | sheetName        |     N       |  String     | 指定工作表名称。 |
-| parserOptions    |     N       |  Object     | [parseOptions 选项](https://c2fo.io/fast-csv/docs/parsing/options)  @fast-csv/format 模块以写入 csv 数据。 |
+| parserOptions    |     N       |  Object     | [parseOptions 选项](https://c2fo.github.io/fast-csv/docs/parsing/options)  @fast-csv/format 模块以写入 csv 数据。 |
 
 ```javascript
 // 从文件读取
@@ -2279,7 +2279,7 @@ const options = {
         return parseFloat(value);
     }
   },
-  // https://c2fo.io/fast-csv/docs/parsing/options
+  // https://c2fo.github.io/fast-csv/docs/parsing/options
   parserOptions: {
     delimiter: '\t',
     quote: false,
@@ -2312,7 +2312,7 @@ CSV 解析器使用 [fast-csv](https://www.npmjs.com/package/fast-csv) 读取CSV
 | map              |     N       |  Function   | 自定义`Array.prototype.map()` 回调函数，用于处理行值。 |
 | sheetName        |     N       |  String     | 指定工作表名称。 |
 | sheetId          |     N       |  Number     | 指定工作表 ID。 |
-| formatterOptions |     N       |  Object     | [formatterOptions 选项](https://c2fo.io/fast-csv/docs/formatting/options/) @fast-csv/format 模块写入csv 数据。 |
+| formatterOptions |     N       |  Object     | [formatterOptions 选项](https://c2fo.github.io/fast-csv/docs/formatting/options/) @fast-csv/format 模块写入csv 数据。 |
 
 ```javascript
 
@@ -2352,7 +2352,7 @@ const options = {
         return value;
     }
   },
-  // https://c2fo.io/fast-csv/docs/formatting/options
+  // https://c2fo.github.io/fast-csv/docs/formatting/options
   formatterOptions: {
     delimiter: '\t',
     quote: false,
