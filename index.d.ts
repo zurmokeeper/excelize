@@ -1501,6 +1501,19 @@ export interface Worksheet {
 	 * delete conditionalFormattingOptions
 	 */
 	removeConditionalFormatting(filter: any): void;
+
+	/**
+	 * add pivot table
+	 */
+	addPivotTable(options: AddPivotTableOptions): void;
+}
+
+interface AddPivotTableOptions {
+	sourceSheet: Worksheet;
+	rows: string[];
+	columns: string[];
+	values: string[];
+	metric: 'sum';
 }
 
 export interface CalculationProperties {
