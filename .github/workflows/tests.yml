@@ -26,9 +26,10 @@ jobs:
         if: runner.os == 'Windows'
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          architecture: 'x64'
       - name: Create the npm cache directory
         run: mkdir npm-cache && npm config set cache ./npm-cache --global
       - name: Cache node modules
