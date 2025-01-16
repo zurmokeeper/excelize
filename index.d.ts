@@ -1184,6 +1184,14 @@ export interface ConditionalFormattingOptions {
 	rules: ConditionalFormattingRule[];
 }
 
+export interface AddPivotTableOptions {
+	sourceSheet: Worksheet;
+	rows: string[];
+	columns: string[];
+	values: string[];
+	metric: 'sum';
+}
+
 export interface Worksheet {
 	readonly id: number;
 	name: string;
@@ -1506,14 +1514,6 @@ export interface Worksheet {
 	 * add pivot table
 	 */
 	addPivotTable(options: AddPivotTableOptions): void;
-}
-
-interface AddPivotTableOptions {
-	sourceSheet: Worksheet;
-	rows: string[];
-	columns: string[];
-	values: string[];
-	metric: 'sum';
 }
 
 export interface CalculationProperties {
