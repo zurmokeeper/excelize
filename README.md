@@ -217,6 +217,7 @@ To be clear, all contributions added to this library will be included in the lib
       <li><a href="#conditional-formatting">Conditional Formatting</a></li>
       <li><a href="#outline-levels">Outline Levels</a></li>
       <li><a href="#images">Images</a></li>
+      <li><a href="#shape">Shape</a></li>
       <li><a href="#sheet-protection">Sheet Protection</a></li>
       <li><a href="#file-io">File I/O</a>
         <ul>
@@ -2233,6 +2234,31 @@ worksheet.addImage(imageId2, {
     hyperlink: 'http://www.somewhere.com',
     tooltip: 'http://www.somewhere.com'
   }
+});
+```
+
+## Shape
+
+### Add shape to worksheet[⬆](#contents)
+
+```javascript
+worksheet.addShape({
+  type: 'roundRect',
+  rotation: 0,
+  fill: { type: 'solid', color: { rgb: '4499FF' } },
+  outline: { weight: 2, color: { rgb: '446699' }, dash: 'sysDash' },
+  textBody: {
+    vertAlign: 'ctr',
+    paragraphs: [
+      { alignment: 'l', runs: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit."] },
+      { alignment: 'r', runs: [
+        { text: "Nulla eget odio sed libero ultrices vehicula.", font: { bold: true, color: { rgb: 'FF0000' } } },
+      ] },
+    ],
+  },
+}, 'B2:H8', {
+  hyperlink: 'https://www.example.com',
+  tooltip: 'Example Link',
 });
 ```
 
