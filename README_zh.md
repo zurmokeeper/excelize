@@ -163,6 +163,7 @@ ws1.getCell('A1').value = { text: 'Sheet2', hyperlink: '#A1:B1' };
       <li><a href="#数据验证">数据验证</a></li>
       <li><a href="#单元格注释">单元格注释</a></li>
       <li><a href="#表格">表格</a></li>
+      <li><a href="#透视表">透视表</a></li>
       <li><a href="#样式">样式</a>
         <ul>
           <li><a href="#数字格式">数字格式</a></li>
@@ -1477,6 +1478,33 @@ column.totalsRowResult = 10;
 table.commit();
 ```
 
+## 透视表[⬆](#目录)<!-- Link generated with jump2header -->
+## 新增透视表到工作表
+```javascript
+    const worksheet1 = workbook.addWorksheet('Sheet1');
+    worksheet1.addRows([
+        ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+        ['a1', 'b1', 'c1', 'd1', 'e1', 'f1', 4, 5],
+        ['a1', 'b2', 'c1', 'd2', 'e1', 'f1', 4, 5],
+        ['a2', 'b1', 'c2', 'd1', 'e2', 'f1', 14, 24],
+        ['a2', 'b2', 'c2', 'd2', 'e2', 'f2', 24, 35],
+        ['a3', 'b1', 'c3', 'd1', 'e3', 'f2', 34, 45],
+        ['a3', 'b2', 'c3', 'd2', 'e3', 'f2', 44, 45],
+    ]);
+
+    const worksheet2 = workbook.addWorksheet('Sheet2');
+    worksheet2.addPivotTable({
+        // Source of data: the entire sheet range is taken;
+        // akin to `worksheet1.getSheetValues()`.
+        sourceSheet: worksheet1,
+        // Pivot table fields: values indicate field names;
+        // they come from the first row in `worksheet1`.
+        rows: ['A', 'B', 'E'],
+        columns: ['C', 'D'],
+        values: ['H'],
+        metric: 'sum', // only 'sum' possible for now
+    });
+```
 
 ## 样式[⬆](#目录)<!-- Link generated with jump2header -->
 
