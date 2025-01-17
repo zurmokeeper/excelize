@@ -1184,6 +1184,14 @@ export interface ConditionalFormattingOptions {
 	rules: ConditionalFormattingRule[];
 }
 
+export interface AddPivotTableOptions {
+	sourceSheet: Worksheet;
+	rows: string[];
+	columns: string[];
+	values: string[];
+	metric: 'sum';
+}
+
 export interface Worksheet {
 	readonly id: number;
 	name: string;
@@ -1501,6 +1509,11 @@ export interface Worksheet {
 	 * delete conditionalFormattingOptions
 	 */
 	removeConditionalFormatting(filter: any): void;
+
+	/**
+	 * add pivot table
+	 */
+	addPivotTable(options: AddPivotTableOptions): void;
 }
 
 export interface CalculationProperties {

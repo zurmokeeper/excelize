@@ -203,6 +203,7 @@ To be clear, all contributions added to this library will be included in the lib
       <li><a href="#data-validations">Data Validations</a></li>
       <li><a href="#cell-comments">Cell Comments</a></li>
       <li><a href="#tables">Tables</a></li>
+      <li><a href="#pivot-tables">PivotTables</a></li>
       <li><a href="#styles">Styles</a>
         <ul>
           <li><a href="#number-formats">Number Formats</a></li>
@@ -1540,7 +1541,33 @@ column.totalsRowResult = 10;
 // commit the table changes into the sheet
 table.commit();
 ```
+## PivotTables[⬆](#contents)<!-- Link generated with jump2header -->
+## add pivot table to worksheet
+```javascript
+    const worksheet1 = workbook.addWorksheet('Sheet1');
+    worksheet1.addRows([
+        ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+        ['a1', 'b1', 'c1', 'd1', 'e1', 'f1', 4, 5],
+        ['a1', 'b2', 'c1', 'd2', 'e1', 'f1', 4, 5],
+        ['a2', 'b1', 'c2', 'd1', 'e2', 'f1', 14, 24],
+        ['a2', 'b2', 'c2', 'd2', 'e2', 'f2', 24, 35],
+        ['a3', 'b1', 'c3', 'd1', 'e3', 'f2', 34, 45],
+        ['a3', 'b2', 'c3', 'd2', 'e3', 'f2', 44, 45],
+    ]);
 
+    const worksheet2 = workbook.addWorksheet('Sheet2');
+    worksheet2.addPivotTable({
+        // Source of data: the entire sheet range is taken;
+        // akin to `worksheet1.getSheetValues()`.
+        sourceSheet: worksheet1,
+        // Pivot table fields: values indicate field names;
+        // they come from the first row in `worksheet1`.
+        rows: ['A', 'B', 'E'],
+        columns: ['C', 'D'],
+        values: ['H'],
+        metric: 'sum', // only 'sum' possible for now
+    });
+```
 
 ## Styles[⬆](#contents)<!-- Link generated with jump2header -->
 
