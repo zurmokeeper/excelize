@@ -176,6 +176,7 @@ ws1.getCell('A1').value = { text: 'Sheet2', hyperlink: '#A1:B1' };
       <li><a href="#条件格式化">条件格式化</a></li>
       <li><a href="#大纲级别">大纲级别</a></li>
       <li><a href="#图片">图片</a></li>
+      <li><a href="#形状">形状Shape</a></li>
       <li><a href="#工作表保护">工作表保护</a></li>
       <li><a href="#文件-io">文件 I/O</a>
         <ul>
@@ -2103,6 +2104,31 @@ worksheet.addImage(imageId2, {
     hyperlink: 'http://www.somewhere.com',
     tooltip: 'http://www.somewhere.com'
   }
+});
+```
+
+## 形状(Shape)
+
+### 新增形状(Shape)到工作表[⬆](#contents)
+
+```javascript
+worksheet.addShape({
+  type: 'roundRect',
+  rotation: 0,
+  fill: { type: 'solid', color: { rgb: '4499FF' } },
+  outline: { weight: 2, color: { rgb: '446699' }, dash: 'sysDash' },
+  textBody: {
+    vertAlign: 'ctr',
+    paragraphs: [
+      { alignment: 'l', runs: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit."] },
+      { alignment: 'r', runs: [
+        { text: "Nulla eget odio sed libero ultrices vehicula.", font: { bold: true, color: { rgb: 'FF0000' } } },
+      ] },
+    ],
+  },
+}, 'B2:H8', {
+  hyperlink: 'https://www.example.com',
+  tooltip: 'Example Link',
 });
 ```
 
